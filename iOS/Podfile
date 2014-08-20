@@ -1,0 +1,7 @@
+platform :ios, '6.0'
+
+pod 'Facebook-iOS-SDK', '~> 3.17'
+pod 'STTwitter', '~> 0.1'
+pod 'ReactiveCocoa', '~> 2.3.1'
+pod 'AFNetworking', '~> 2.3'
+pod 'AFNetworking2-RACExtensions', '~> 0.0'
