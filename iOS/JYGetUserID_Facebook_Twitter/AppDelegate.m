@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "JYFBUSERIDViewController.h"
+#import "JYTiwterUSERIDViewController.h"
 
 @implementation AppDelegate
 
