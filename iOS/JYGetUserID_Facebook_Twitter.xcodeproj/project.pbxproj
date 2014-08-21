@@ -25,6 +25,10 @@
 		7B6EBDF019A463370086B9DA /* JYTiwterUSERIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B6EBDEE19A463370086B9DA /* JYTiwterUSERIDViewController.xib */; };
 		7B6EBDF519A487A80086B9DA /* JYFBUSERIDViewModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EBDF419A487A80086B9DA /* JYFBUSERIDViewModal.m */; };
 		7B6EBDF919A48C890086B9DA /* JYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EBDF819A48C890086B9DA /* JYUtils.m */; };
+		7B6EBDFC19A4B2DE0086B9DA /* JYTiwterUSERIDViewModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EBDFB19A4B2DE0086B9DA /* JYTiwterUSERIDViewModal.m */; };
+		7B6EBE0019A59C5D0086B9DA /* JYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EBDFE19A59C5D0086B9DA /* JYMainViewController.m */; };
+		7B6EBE0119A59C5D0086B9DA /* JYMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B6EBDFF19A59C5D0086B9DA /* JYMainViewController.xib */; };
+		7B6EBE0C19A5E8D70086B9DA /* TWitterSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EBE0B19A5E8D70086B9DA /* TWitterSession.m */; };
 		9E7C98F9CF2A48D0B207C375 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F29E7D79904C8C87CFD4D7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,13 @@
 		7B6EBDF419A487A80086B9DA /* JYFBUSERIDViewModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYFBUSERIDViewModal.m; path = viewController/ViewModal/JYFBUSERIDViewModal.m; sourceTree = "<group>"; };
 		7B6EBDF719A48C890086B9DA /* JYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYUtils.h; path = Utils/JYUtils.h; sourceTree = "<group>"; };
 		7B6EBDF819A48C890086B9DA /* JYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYUtils.m; path = Utils/JYUtils.m; sourceTree = "<group>"; };
+		7B6EBDFA19A4B2DE0086B9DA /* JYTiwterUSERIDViewModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYTiwterUSERIDViewModal.h; path = viewController/ViewModal/JYTiwterUSERIDViewModal.h; sourceTree = "<group>"; };
+		7B6EBDFB19A4B2DE0086B9DA /* JYTiwterUSERIDViewModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYTiwterUSERIDViewModal.m; path = viewController/ViewModal/JYTiwterUSERIDViewModal.m; sourceTree = "<group>"; };
+		7B6EBDFD19A59C5D0086B9DA /* JYMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYMainViewController.h; path = viewController/JYMainViewController.h; sourceTree = "<group>"; };
+		7B6EBDFE19A59C5D0086B9DA /* JYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYMainViewController.m; path = viewController/JYMainViewController.m; sourceTree = "<group>"; };
+		7B6EBDFF19A59C5D0086B9DA /* JYMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JYMainViewController.xib; path = viewController/JYMainViewController.xib; sourceTree = "<group>"; };
+		7B6EBE0A19A5E8D70086B9DA /* TWitterSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWitterSession.h; path = Object/TWitterSession.h; sourceTree = "<group>"; };
+		7B6EBE0B19A5E8D70086B9DA /* TWitterSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TWitterSession.m; path = Object/TWitterSession.m; sourceTree = "<group>"; };
 		C1837BA80EB74DDD887DFE3D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,11 +140,10 @@
 		7B6EBDBC19A45AB00086B9DA /* JYGetUserID_Facebook_Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				7B6EBDF619A48C5D0086B9DA /* Utils */,
 				7B6EBDE619A462010086B9DA /* source */,
-				7B6EBDE519A461EB0086B9DA /* viewController */,
-				7B6EBDC519A45AB00086B9DA /* AppDelegate.h */,
-				7B6EBDC619A45AB00086B9DA /* AppDelegate.m */,
+				7B6EBE0919A5E8B20086B9DA /* Object */,
+				7B6EBDF619A48C5D0086B9DA /* Utils */,
+				7B6EBE0D19A604AC0086B9DA /* Main */,
 				7B6EBDBD19A45AB00086B9DA /* Supporting Files */,
 			);
 			path = JYGetUserID_Facebook_Twitter;
@@ -171,6 +181,9 @@
 		7B6EBDE519A461EB0086B9DA /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				7B6EBDFD19A59C5D0086B9DA /* JYMainViewController.h */,
+				7B6EBDFE19A59C5D0086B9DA /* JYMainViewController.m */,
+				7B6EBDFF19A59C5D0086B9DA /* JYMainViewController.xib */,
 				7B6EBDF119A4874E0086B9DA /* FB */,
 				7B6EBDF219A4875C0086B9DA /* Twitter */,
 			);
@@ -203,6 +216,8 @@
 				7B6EBDEC19A463370086B9DA /* JYTiwterUSERIDViewController.h */,
 				7B6EBDED19A463370086B9DA /* JYTiwterUSERIDViewController.m */,
 				7B6EBDEE19A463370086B9DA /* JYTiwterUSERIDViewController.xib */,
+				7B6EBDFA19A4B2DE0086B9DA /* JYTiwterUSERIDViewModal.h */,
+				7B6EBDFB19A4B2DE0086B9DA /* JYTiwterUSERIDViewModal.m */,
 			);
 			name = Twitter;
 			sourceTree = "<group>";
@@ -214,6 +229,25 @@
 				7B6EBDF819A48C890086B9DA /* JYUtils.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		7B6EBE0919A5E8B20086B9DA /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				7B6EBE0A19A5E8D70086B9DA /* TWitterSession.h */,
+				7B6EBE0B19A5E8D70086B9DA /* TWitterSession.m */,
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
+		7B6EBE0D19A604AC0086B9DA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7B6EBDC519A45AB00086B9DA /* AppDelegate.h */,
+				7B6EBDC619A45AB00086B9DA /* AppDelegate.m */,
+				7B6EBDE519A461EB0086B9DA /* viewController */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6EBE0119A59C5D0086B9DA /* JYMainViewController.xib in Resources */,
 				7B6EBDF019A463370086B9DA /* JYTiwterUSERIDViewController.xib in Resources */,
 				7B6EBDC119A45AB00086B9DA /* InfoPlist.strings in Resources */,
 				7B6EBDC919A45AB00086B9DA /* Images.xcassets in Resources */,
@@ -348,11 +383,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6EBE0019A59C5D0086B9DA /* JYMainViewController.m in Sources */,
 				7B6EBDF519A487A80086B9DA /* JYFBUSERIDViewModal.m in Sources */,
 				7B6EBDC719A45AB00086B9DA /* AppDelegate.m in Sources */,
 				7B6EBDF919A48C890086B9DA /* JYUtils.m in Sources */,
 				7B6EBDEA19A4626D0086B9DA /* JYFBUSERIDViewController.m in Sources */,
 				7B6EBDEF19A463370086B9DA /* JYTiwterUSERIDViewController.m in Sources */,
+				7B6EBE0C19A5E8D70086B9DA /* TWitterSession.m in Sources */,
+				7B6EBDFC19A4B2DE0086B9DA /* JYTiwterUSERIDViewModal.m in Sources */,
 				7B6EBDC319A45AB00086B9DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

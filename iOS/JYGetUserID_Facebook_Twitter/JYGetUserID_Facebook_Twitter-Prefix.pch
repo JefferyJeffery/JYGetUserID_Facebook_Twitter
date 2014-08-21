@@ -21,5 +21,6 @@
 #import <STTwitter/STTwitter.h>
 
 #import "JYUtils.h"
+#import "TWitterSession.h"
 
 #endif

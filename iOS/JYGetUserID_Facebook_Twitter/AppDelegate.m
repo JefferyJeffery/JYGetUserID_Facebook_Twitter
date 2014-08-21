@@ -7,12 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "JYFBUSERIDViewController.h"
+#import "JYMainViewController.h"
 #import "JYTiwterUSERIDViewController.h"
 
 @interface AppDelegate()
-@property(nonatomic,strong) JYFBUSERIDViewController *FBUSERIDViewController;
-@property(nonatomic,strong) JYTiwterUSERIDViewController *TiwterUSERIDViewController;
+
 @end
 
 
@@ -23,9 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    self.FBUSERIDViewController = [[JYFBUSERIDViewController alloc] init];
-    self.window.rootViewController = _FBUSERIDViewController;
+    self.window.rootViewController = [[JYMainViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -68,7 +65,45 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    return [self FaceBookHandleOpenURL:url];
+    if ([[url scheme] isEqualToString:@"myapp"] == NO) {
+        return [self FaceBookHandleOpenURL:url];
+    } else {
+        
+        NSMutableDictionary *md = [NSMutableDictionary dictionary];
+        
+        NSArray *queryComponents = [[url query] componentsSeparatedByString:@"&"];
+        
+        for(NSString *s in queryComponents) {
+            NSArray *pair = [s componentsSeparatedByString:@"="];
+            if([pair count] != 2) continue;
+            
+            NSString *key = pair[0];
+            NSString *value = pair[1];
+            
+            md[key] = value;
+        }
+        
+//        NSString *token = md[@"oauth_token"];
+        NSString *verifier = md[@"oauth_verifier"];
+        
+        [[TWitterSession twitterWithOAuth] postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
+            NSLog(@"-- screenName: %@", screenName);
+            NSLog(@"-- userID: %@", userID);
+            
+            [TWitterSession sharedManager].oauthToken = oauthToken;
+            [TWitterSession sharedManager].oauthTokenSecret = oauthTokenSecret;
+            [TWitterSession sharedManager].userID = userID;
+            [TWitterSession sharedManager].screenName = screenName;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:JYTwitterUserIDViewOAuthSccuessNotification object:[TWitterSession sharedManager]];
+            
+        } errorBlock:^(NSError *error) {
+            NSLog(@"-- %@", [error localizedDescription]);
+        }];
+        
+        
+        return YES;
+    }
 }
 
 #pragma mark - FaceBook
