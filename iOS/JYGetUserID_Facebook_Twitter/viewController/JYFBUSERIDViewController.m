@@ -14,6 +14,8 @@
 @property (nonatomic,strong) JYFBUSERIDViewModal *viewModal;
 @property (weak, nonatomic) IBOutlet UIButton *fbBtn;
 @property (weak, nonatomic) IBOutlet UILabel *userIDLbl;
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelBTN;
 @end
 
 @implementation JYFBUSERIDViewController
@@ -39,14 +41,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    @weakify(self);
+    _cancelBTN.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+       return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+           
+           @strongify(self);
+           [self dismissViewControllerAnimated:YES completion:nil];
+           [subscriber sendCompleted];
+           
+           return nil;
+       }];
+    }];
+    
+    
     [_viewModal FaceBookOpenActiveSessionWithCompletionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+        @strongify(self);
         [self sessionStateChanged:session state:state error:error];
     }];
     
     [[[_viewModal.fbBtnCmd.executionSignals flatten] reduceEach:^id(FBSession *session, NSNumber *fbSessionState){
+        @strongify(self);
         [self sessionStateChanged:session state:(FBSessionState)fbSessionState.integerValue error:nil];
         return nil;
     }] subscribeError:^(NSError *error) {
+        @strongify(self);
         [self sessionStateChanged:nil state:0 error:error];
     }];
     
